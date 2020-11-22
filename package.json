@@ -1,0 +1,22 @@
+{
+  "name": "cryptocurrencies-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.15",
+    "password-validator": "^5.1.1"
+  }
+}
