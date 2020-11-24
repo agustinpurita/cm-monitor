@@ -3,7 +3,7 @@ const db = require('../config/database.config');
 const setInitialCryptos = require('./initCryptos');
 
 async function connectdb({ uri }) {
-    await mongoose.connect('mongodb://localhost/crypto', {
+    await mongoose.connect(uri, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,

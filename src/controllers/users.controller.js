@@ -103,8 +103,10 @@ usersController.createUser = async (req, res) => {
       });
     });
   } catch (error) {
-    console.log(error);
-    res.json(error);
+    res.json({
+      ok: false,
+      error,
+    });
   }
 };
 
@@ -112,7 +114,6 @@ usersController.updateUser = async (req, res) => {
   try {
 
     const { userId } = req.params;
-    console.log(userId)
     const { currency, favcryptos } = req.body;
     const token = req.headers['access-token'];
 
@@ -149,8 +150,10 @@ usersController.updateUser = async (req, res) => {
       }
     );
   } catch (error) {
-    console.log(error);
-    res.json(error);
+    res.json({
+      ok: false,
+      error,
+    });
   }
 };
 
@@ -186,7 +189,6 @@ usersController.getCryptosFav = async (req, res) => {
     else {
       orderRule = false;
     }
-    console.log(orderRule);
     const { number } = req.params;
     if (isNaN(number)) {
       return res.json({
@@ -238,7 +240,10 @@ usersController.getCryptosFav = async (req, res) => {
     });
 
   } catch (error) {
-    console.log(error);
+    res.json({
+      ok: false,
+      error,
+    });
   }
 };
 
