@@ -8,7 +8,7 @@ PASOS PARA CORRER EL PROYECTO LOCALMENTE:
 
 ###
 Api doc (endpoints):  
-1)  
+1  
 (URL)/api/users   
 (GET) para obtener los ususarios guardados en la base de datos.  
 (GET) /id para obtener los datos de un usuario guardado en la base de datos.  
@@ -16,11 +16,11 @@ Api doc (endpoints):
 (PUT) permite actualizar las criptomonedas favoritas de un usuario y su moneda. se debe proveer favcryptos(array de ids de criptomonedas) y currency  
 (DELETE) /id permite borrar un usuario de la base de datos.  
 
-2)  
+2   
 (URL)/api/login  
 (POST) enviado username y password, el usuario obtendra su token de autenticacion.  
 
-3)  
+3  
 (URL)/api/cryptos  
 (GET) Obtiene todo el listado de criptomonedas.  
 (GET) /avaiablefav Permite conocer los ids de las criptomonedas disponibles para agregar a favoritas y hacer un seguimiento (ids requeridos en el array favcryptos)  
