@@ -1,5 +1,5 @@
 ###
-STEPS TO RUN PROJECT LOCAL: 
+PASOS PARA CORRER EL PROYECTO LOCALMENTE: 
 1) Clonar el repositorio.
 2) En la carpeta del repositorio, correr: npm install
 3) Para correr local el proyecto: npm start
@@ -7,7 +7,7 @@ STEPS TO RUN PROJECT LOCAL:
 5) Con la aplicacion corriendo, para ejecutar los tests: npm test
 
 ###
-Api doc (endpoints):
+Api doc (endpoints):  
 1)  
 (URL)/api/users   
 (GET) para obtener los ususarios guardados en la base de datos.  
