@@ -1,5 +1,7 @@
-const currencies = ['EUR','USD','ARS'];
+const currencies = ['EUR', 'USD', 'ARS'];
 
-const isValidCurrency = (currency) => currencies.includes(currency);
-
+const isValidCurrency = (currency) => {
+    const currencyUpperCase = currency.toUpperCase();
+    return currencies.includes(currencyUpperCase);
+};
 module.exports = isValidCurrency;

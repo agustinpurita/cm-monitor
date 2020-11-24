@@ -6,10 +6,31 @@ const {
   getUser,
   updateUser,
   deleteUser,
+  getCryptosFav
 } = require('../controllers/users.controller');
+const authJwt = require('../middlewares/authJwt');
 
-router.route('/').get(getUsers).post(createUser);
+router.get('/', getUsers);
 
-router.route('/:id').get(getUser).put(updateUser).delete(deleteUser);
+router.get('/:userId', getUser);
+
+router.get('/top/:number',authJwt.verifyToken, getCryptosFav);
+
+router.post(
+  '/',
+  createUser
+);
+
+router.put(
+  '/:userId',
+  authJwt.verifyToken,
+  updateUser
+);
+
+router.delete(
+  '/:userId',
+  authJwt.verifyToken,
+  deleteUser,
+);
 
 module.exports = router;

@@ -2,17 +2,12 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
   {
-    id: {
-      type: Number,
-      required: true,
-      unique: true,
-    },
-    nombre: {
+    name: {
       type: String,
       required: true,
       unique: false,
     },
-    apellido: {
+    lastname: {
       type: String,
       required: true,
       unique: false,
@@ -22,17 +17,22 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    contraseña: {
+    password: {
       type: String,
       required: true,
       unique: false,
     },
-    moneda: {
-        type: String,
-        required: true,
-        unique: false,
-    }
-
+    currency: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    favcryptos: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Crypto',
+      },
+    ],
   },
   {
     timestamps: true,
