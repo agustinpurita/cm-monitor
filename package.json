@@ -6,12 +6,16 @@
   "scripts": {
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
     "dev": "nodemon src/app.js",
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "test": "mocha src/tests/**/*.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "eslint": "^7.14.0",
+    "mocha": "^8.2.1",
     "nodemon": "^2.0.6"
   },
   "dependencies": {

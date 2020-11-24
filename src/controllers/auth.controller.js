@@ -22,7 +22,7 @@ authController.login = async (req, res) => {
             });
 
         const token = jwt.sign({ id: userFound._id }, server.secret, {
-            expiresIn: 86400, // 24 hours
+            expiresIn: '30d'
         });
 
         res.json({

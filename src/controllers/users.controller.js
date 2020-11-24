@@ -82,9 +82,13 @@ usersController.createUser = async (req, res) => {
           error: err.message,
         });
       }
+      const token = jwt.sign({ id: userDB._id }, server.secret, {
+        expiresIn: '30d'
+      });
       return res.json({
         ok: true,
         message: 'Usuario creado',
+        token,
         user: userDB,
       });
     });
@@ -98,6 +102,7 @@ usersController.updateUser = async (req, res) => {
   try {
 
     const { userId } = req.params;
+    console.log(userId)
     const { currency, favcryptos } = req.body;
     const token = req.headers['access-token'];
 
@@ -125,7 +130,11 @@ usersController.updateUser = async (req, res) => {
             error: err,
           });
         } else {
-          res.json({ message: 'Usuario actualizado', userDB });
+          res.json({
+            ok: true,
+            message: 'Usuario actualizado',
+            user: userDB
+          });
         }
       }
     );
@@ -208,7 +217,7 @@ usersController.getCryptosFav = async (req, res) => {
               if (orderRule) {
                 return a[`price_${userCurrency}`] > b[`price_${userCurrency}`] ? orderRule : orderRule * (-1);
               }
-              else{
+              else {
                 return a[`price_${userCurrency}`] > b[`price_${userCurrency}`] ? 1 : -1;
               }
             });
