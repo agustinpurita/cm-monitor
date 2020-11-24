@@ -1,31 +1,18 @@
 /* eslint-disable no-undef */
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-const testConfig = require('../tests.config');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
 const expect = require('chai').expect;
-
-
+const { mockUpdateUser, mockCreateUser } = require('./user.mocks');
 chai.use(chaiHttp);
-const url = 'http://localhost:3000/api';
-const mockCreateUser = {
-    name: 'example name',
-    lastname: 'example lastname',
-    username: 'example username',
-    password: 'exampleValidpw12',
-    currency: 'ars',
-};
-const mockUpdateUser = {
-    'favcryptos': ['5fbc3852325685930b315400', '5fbc3852325685930b315401'],
-    'currency': 'usd'
-};
 
-describe('Users CRUD', () => {
+describe('Users controller', () => {
+    const url = 'http://localhost:3000/api';
     let idUser;
     let tokenUser;
     after((done) => {
         chai.request(url)
             .delete(`/users/${idUser}`)
-            .set('access-token', testConfig.token)
+            .set('access-token', tokenUser)
             .end((err, res) => {
                 expect(res.body).to.have.property('ok').to.be.equal(true);
             });
@@ -58,7 +45,14 @@ describe('Users CRUD', () => {
         chai.request(url)
             .get('/users')
             .end((err, res) => {
-                console.log(res.body)
+                expect(res.body).to.have.property('ok').to.be.equal(true);
+                done();
+            });
+    });
+    it('should get an user', (done) => {
+        chai.request(url)
+            .get(`/users/${idUser}`)
+            .end((err, res) => {
                 expect(res.body).to.have.property('ok').to.be.equal(true);
                 done();
             });

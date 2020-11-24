@@ -19,11 +19,16 @@ usersController.getUsers = async (req, res) => {
           error: err.message,
         });
       }
-      return res.json(usersDB);
+      return res.json({
+        ok: true,
+        users: usersDB
+      });
     });
   } catch (error) {
-    console.log(error);
-    return res.json(error);
+    return res.json({
+      ok: false,
+      error
+    });
   }
 };
 
@@ -38,11 +43,16 @@ usersController.getUser = async (req, res) => {
           error: err,
         });
       }
-      return res.json(userDB);
+      return res.json({
+        ok: true,
+        user: userDB
+      });
     });
   } catch (error) {
-    console.log(error);
-    return res.json(error);
+    return res.json({
+      ok: false,
+      error
+    });
   }
 };
 

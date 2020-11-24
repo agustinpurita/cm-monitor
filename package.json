@@ -7,7 +7,7 @@
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
     "dev": "nodemon src/app.js",
     "start": "node src/app.js",
-    "test": "mocha src/tests/**/*.js"
+    "test": "mocha --recursive src/tests/** --timeout 20000"
   },
   "author": "",
   "license": "ISC",
