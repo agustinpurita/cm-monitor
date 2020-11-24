@@ -8,9 +8,6 @@ const server = require('../config/server.config');
 const Crypto = require('../models/Crypto');
 const rp = require('request-promise');
 const apiCoin = require('../config/externals.config');
-const e = require('express');
-
-
 
 usersController.getUsers = async (req, res) => {
   try {
@@ -170,7 +167,7 @@ usersController.getCryptosFav = async (req, res) => {
     else {
       orderRule = false;
     }
-    console.log(orderRule)
+    console.log(orderRule);
     const { number } = req.params;
     if (isNaN(number)) {
       return res.json({
@@ -224,7 +221,7 @@ usersController.getCryptosFav = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 
 
