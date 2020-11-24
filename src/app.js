@@ -4,7 +4,7 @@ require('./database/database');
 const app = express();
 
 
-//settings
+//Settings
 app.set('port', server.port);
 
 //Middlewares

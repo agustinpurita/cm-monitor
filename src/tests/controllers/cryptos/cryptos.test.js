@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const server = require('../../../config/server.config');
 const mockCreateUser = require('./cryptos.mock');
 const expect = require('chai').expect;
 chai.use(chaiHttp);
 
 describe('Cryptos controller', () => {
-    const url = 'http://localhost:3000/api';
+    const url = `http://localhost:${server.port}/api`;
     let idUser;
     let tokenUser;
     before((done) => {

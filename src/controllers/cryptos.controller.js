@@ -35,7 +35,7 @@ cryptosController.getCryptosList = async (req, res) => {
             last_updated,
           });
         });
-        console.log(response.length)
+        console.log(response.length);
         if (response.length === totalCoins) {
           res.json({
             ok: true,

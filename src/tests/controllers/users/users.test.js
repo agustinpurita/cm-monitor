@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const server = require('../../../config/server.config');
 const expect = require('chai').expect;
 const { mockUpdateUser, mockCreateUser } = require('./user.mocks');
 chai.use(chaiHttp);
 
 describe('Users controller', () => {
-    const url = 'http://localhost:3000/api';
+    const url = `http://localhost:${server.port}/api`;
     let idUser;
     let tokenUser;
     after((done) => {
